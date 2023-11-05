@@ -1,49 +1,47 @@
-
 -- Create the Inventory table
 CREATE TABLE Inventory (
     ProductID INT,
-    ProductName VARCHAR(255),
+    ProductName VARCHAR(60),
     Quantity INT,
     PRIMARY KEY (ProductID, ProductName),
-    FOREIGN KEY (ProductID, ProductName) REFERENCES Product(ProductID, Name)
+    FOREIGN KEY (ProductID, ProductName) REFERENCES Product(ProductID, PName)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
-
 -- Create the User table
-CREATE TABLE User (
+CREATE TABLE `User` (
     UserID INT PRIMARY KEY,
-    JobTitle VARCHAR(255),
-    FirstName VARCHAR(255),
-    LastName VARCHAR(255),
-    Password VARCHAR(255)
+    JobTitle VARCHAR(80) DEFAULT 'Employee',
+    FirstName VARCHAR(40),
+    LastName VARCHAR(40),
+    UserPassword VARCHAR(40) NOT NULL
 );
 
 -- Create the Manufacturer table
 CREATE TABLE Manufacturer (
     ManufacturerID INT PRIMARY KEY,
-    Name VARCHAR(255),
-    Phone VARCHAR(255),
-    Email VARCHAR(255)
+    MName VARCHAR(60) NOT NULL,
+    Phone VARCHAR(20),
+    Email VARCHAR(50)
 );
 
--- Create the Product table with a composite primary key
+-- Create the Product table 
 CREATE TABLE Product (
     ProductID INT,
-    Name VARCHAR(255),
+    PName VARCHAR(60),
     Price DECIMAL(10, 2),
-    Description TEXT,
-    PRIMARY KEY (ProductID, Name)
+    PDescription TEXT,
+    PRIMARY KEY (ProductID, PName)
 );
 
--- Create the Supplies table with three primary keys
+-- Create the Supplies table 
 CREATE TABLE Supplies (
     ProductID INT,
-    ProductName VARCHAR(255),
+    ProductName VARCHAR(60),
     ManufacturerID INT,
     PRIMARY KEY (ProductID, ProductName, ManufacturerID),
-    FOREIGN KEY (ProductID, ProductName) REFERENCES Product(ProductID, Name)
+    FOREIGN KEY (ProductID, ProductName) REFERENCES Product(ProductID, PName)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     FOREIGN KEY (ManufacturerID) REFERENCES Manufacturer(ManufacturerID)
@@ -51,18 +49,17 @@ CREATE TABLE Supplies (
         ON UPDATE CASCADE
 );
 
--- Create the Order table with ON DELETE SET NULL
-CREATE TABLE `Order` (
+-- Create the Orders table 
+CREATE TABLE Orders (
     OrderID INT PRIMARY KEY,
-    Date DATE,
-    Quantity INT,
-    UserID INT,
-    ProductID INT,
+    OrderDate DATE NOT NULL,
+    Quantity INT NOT NULL DEFAULT 1,
+    UserID INT DEFAULT NULL,
+    ProductID INT DEFAULT NULL,
     FOREIGN KEY (UserID) REFERENCES `User`(UserID)
-        ON DELETE SET NULL      -- so we don't lose records if a user is deleted 
+        ON DELETE SET NULL
         ON UPDATE CASCADE,
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
-        ON DELETE CASCADE
+        ON DELETE SET NULL
         ON UPDATE CASCADE
 );
-
