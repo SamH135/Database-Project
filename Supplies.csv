@@ -1,11 +1,6 @@
-ProductID,SupplierID
-1,1
-2,1
-1,2
-3,2
-2,3
-4,3
-3,4
-5,4
-4,5
-5,5
+ProductID,ProductName,ManufacturerID
+1,ProductA,1
+2,ProductB,2
+3,ProductC,3
+4,ProductD,4
+5,ProductE,5

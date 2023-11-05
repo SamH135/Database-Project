@@ -1,6 +1,6 @@
-ProductID,ProductName
-1,Item A
-2,Item B
-3,Item C
-4,Item D
-5,Item E
+ProductID,ProductName,Quantity
+1,ProductA,100
+2,ProductB,75
+3,ProductC,200
+4,ProductD,50
+5,ProductE,300

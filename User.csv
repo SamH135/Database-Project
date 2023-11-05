@@ -1,6 +1,6 @@
-UserID,JobTitle,Username,Password
-1,Manager,user1,password1
-2,Customer,user2,password2
-3,Employee,user3,password3
-4,Customer,user4,password4
-5,Employee,user5,password5
+UserID,JobTitle,FirstName,LastName,UserPassword
+1,Manager,John,Doe,password1
+2,Employee,Jane,Smith,password2
+3,Employee,Michael,Johnson,password3
+4,Supervisor,Emily,Williams,password4
+5,Employee,William,Brown,password5

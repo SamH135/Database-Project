@@ -1,6 +1,6 @@
-ProductID,Price,Description,Name
-1,19.99,Product 1,Item A
-2,29.99,Product 2,Item B
-3,9.99,Product 3,Item C
-4,39.99,Product 4,Item D
-5,49.99,Product 5,Item E
+ProductID,PName,Price,PDescription
+1,ProductA,25.99,DescriptionA
+2,ProductB,19.95,DescriptionB
+3,ProductC,34.50,DescriptionC
+4,ProductD,15.75,DescriptionD
+5,ProductE,49.99,DescriptionE
